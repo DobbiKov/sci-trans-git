@@ -1,0 +1,746 @@
+/Users/dobbikov/Desktop/stage/clis/prompt_testing_lib/src/lib.rs-100 [DEBUG] - ---Full prompt: 
+You are a specialized translation assistant proficient in handling various document formats while strictly preserving their original structure and formatting. Your goal is to translate natural language content into English, ensuring that structural elements remain untouched.
+
+Based on the information available in the provided document, apply the following refined strategy:
+
+### Step-by-Step Instructions:
+
+**Step 1: Analyze Document Type (Enhanced with Type Examples)**
+
+*   Carefully examine the provided document to explicitly identify its type from the following list:
+    *   Jupyter Notebook (.ipynb)
+    *   MyST Markdown (.md)
+    *   Typst document (.typ)
+    *   LaTeX Document (.tex)
+    *   Microsoft Word Document (.docx)
+*   If unsure, analyze the document extensions or headers from provided document in the source to identify the document type.
+
+**Step 2: Analyze the provided document to retrieve the language it's written in (e.g English, French, Ukrainian)**
+
+**Step 3: Identify Structural Syntax (Prioritize Untranslatable Elements)**
+
+*   Based on the identified document type, precisely pinpoint elements that are *NOT* to be translated, including but not limited to:
+    *   Code blocks, inline code, mathematical equations, and code comments.
+    *   Markup/Markdown syntax: headings, bold, italics, lists, hyperlinks, etc.
+    *   LaTeX commands, Typst syntax, XML/HTML tags in Word documents, YAML front matter, and MyST directives.
+*   Leverage the given documents to help with recognizing elements and syntax.
+
+**Step 4: Translate Natural Language (Preserve Fidelity and Structural Integrity)**
+
+*   Translate ONLY the natural language text from the original into English.
+*   During translation and integration, rigorously ensure that the following elements remain untouched:
+    *   Exact structural, syntactical, and formatting commands.
+    *   Original encoding, indentation, spacing, and line breaks.
+
+### Input Information Provided:
+
+*   **Source Document:** The document will be provided below in the tag `<document>`
+*   **Target Language:** English 
+
+### Output Format Requirements:
+
+*   Provide the translated document with *EXACT* structural fidelity. The original structure is more important than the meaning of the translated text.
+*   Ensure all non-translatable elements (code blocks, syntax commands, etc.) are *IDENTICAL* to the original input.
+*   If the original language of the document is French you should reply with the same prompt
+*   Carefully verify that all non-translatable elements remain unchanged after translation.
+
+
+### Important Guidelines:
+
+*   If you're given a document that does not contain any translatable text (e.g a code block) you return the same block without any changes
+*   When uncertain, *DEFAULT* to NOT translating or altering the text.
+*   Structural preservation is paramount to translation accuracy.
+*   To achieve perfect structural preservation carefully verify *EVERY* element after translation.
+*   Before you begin verify you understand the goal of the task 
+* Provide the translated document **strictly inside** a `<output>` tag.
+⚠️ **Do not wrap** the contents of `output>` in any code block (e.g. no `markdown, `text, or \`\`\` at all).
+The content must appear exactly as it would in a raw file, without syntax highlighting, language annotations, or formatting.
+The output should look like:
+```xml
+<output>
+[raw translated document with exact structure preserved]
+</output>
+```
+
+Do not escape special characters such as $, ::: or LaTeX commands.
+Characters like $, :::{...}, \section{}, \begin{} and others should remain exactly as in the original, without inserting backslashes (\) before them.
+Return the document exactly as it should appear in a raw .tex, .md, .typ, or .ipynb file.
+Example:
+
+    Input: $f$ gives Output: $f$ (not \$f\$) 
+
+    Input: :::{tip} gives Output: :::{tip}  (not \:::{tip}) 
+
+If the document is too long to output in one response, continue directly from where you left off in a second <output> response, without any summary, placeholder, or comments like <!-- continues -->. Just continue the translation.
+
+
+Begin the process now, clearly labeling each step of your analysis before proceeding with the translation.
+<document>
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: python3
+---
+</document>
+/Users/dobbikov/Desktop/stage/clis/prompt_testing_lib/src/lib.rs-138 [DEBUG] - 
+Chunk 1, contents:
+/Users/dobbikov/Desktop/stage/clis/prompt_testing_lib/src/lib.rs-139 [DEBUG] - 
+Okay, let's begin.
+
+**Step 1: Analyze Document Type**
+
+The document starts with `jupytext:` and `kernelspec:` blocks, followed by YAML frontmatter. The `text_representation` field indicates the format is MyST Markdown (.md).
+
+**Step 1.1: Verify the extension**
+
+The `text_representation` field specifies the extension as `.md`. This confirms that the document is a MyST Markdown file.
+
+**Step 2: Identify the Language**
+
+The language is not explicitly declared within the provided document snippet. However, given the structure (YAML frontmatter, Jupyter Notebook metadata) and the absence of any text, I will assume the actual content (not provided) will be in French, as per the prompt instructions.
+
+**Step 3: Identify Structural Syntax (Prioritize Untranslatable Elements)**
+
+*   **YAML Frontmatter:** The `jupytext` and `kernelspec` blocks are YAML frontmatter and should not be translated.
+*   **Markdown Syntax:** Headings, lists, links, etc., should remain unchanged.
+*   **Code Blocks:** If there are any code blocks in the (missing) content, they should remain untouched.
+
+**Step 4: Translate Natural Language (Preserve Fidelity and Structural Integrity)**
+
+Since there is no translatable text provided, I will simply return the provided text block, preserving the structure.
+
+<output>
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: python3
+---
+</output>
+/Users/dobbikov/Desktop/stage/clis/prompt_testing_lib/src/lib.rs-100 [DEBUG] - ---Full prompt: 
+You are a specialized translation assistant proficient in handling various document formats while strictly preserving their original structure and formatting. Your goal is to translate natural language content into English, ensuring that structural elements remain untouched.
+
+Based on the information available in the provided document, apply the following refined strategy:
+
+### Step-by-Step Instructions:
+
+**Step 1: Analyze Document Type (Enhanced with Type Examples)**
+
+*   Carefully examine the provided document to explicitly identify its type from the following list:
+    *   Jupyter Notebook (.ipynb)
+    *   MyST Markdown (.md)
+    *   Typst document (.typ)
+    *   LaTeX Document (.tex)
+    *   Microsoft Word Document (.docx)
+*   If unsure, analyze the document extensions or headers from provided document in the source to identify the document type.
+
+**Step 2: Analyze the provided document to retrieve the language it's written in (e.g English, French, Ukrainian)**
+
+**Step 3: Identify Structural Syntax (Prioritize Untranslatable Elements)**
+
+*   Based on the identified document type, precisely pinpoint elements that are *NOT* to be translated, including but not limited to:
+    *   Code blocks, inline code, mathematical equations, and code comments.
+    *   Markup/Markdown syntax: headings, bold, italics, lists, hyperlinks, etc.
+    *   LaTeX commands, Typst syntax, XML/HTML tags in Word documents, YAML front matter, and MyST directives.
+*   Leverage the given documents to help with recognizing elements and syntax.
+
+**Step 4: Translate Natural Language (Preserve Fidelity and Structural Integrity)**
+
+*   Translate ONLY the natural language text from the original into English.
+*   During translation and integration, rigorously ensure that the following elements remain untouched:
+    *   Exact structural, syntactical, and formatting commands.
+    *   Original encoding, indentation, spacing, and line breaks.
+
+### Input Information Provided:
+
+*   **Source Document:** The document will be provided below in the tag `<document>`
+*   **Target Language:** English 
+
+### Output Format Requirements:
+
+*   Provide the translated document with *EXACT* structural fidelity. The original structure is more important than the meaning of the translated text.
+*   Ensure all non-translatable elements (code blocks, syntax commands, etc.) are *IDENTICAL* to the original input.
+*   If the original language of the document is French you should reply with the same prompt
+*   Carefully verify that all non-translatable elements remain unchanged after translation.
+
+
+### Important Guidelines:
+
+*   If you're given a document that does not contain any translatable text (e.g a code block) you return the same block without any changes
+*   When uncertain, *DEFAULT* to NOT translating or altering the text.
+*   Structural preservation is paramount to translation accuracy.
+*   To achieve perfect structural preservation carefully verify *EVERY* element after translation.
+*   Before you begin verify you understand the goal of the task 
+* Provide the translated document **strictly inside** a `<output>` tag.
+⚠️ **Do not wrap** the contents of `output>` in any code block (e.g. no `markdown, `text, or \`\`\` at all).
+The content must appear exactly as it would in a raw file, without syntax highlighting, language annotations, or formatting.
+The output should look like:
+```xml
+<output>
+[raw translated document with exact structure preserved]
+</output>
+```
+
+Do not escape special characters such as $, ::: or LaTeX commands.
+Characters like $, :::{...}, \section{}, \begin{} and others should remain exactly as in the original, without inserting backslashes (\) before them.
+Return the document exactly as it should appear in a raw .tex, .md, .typ, or .ipynb file.
+Example:
+
+    Input: $f$ gives Output: $f$ (not \$f\$) 
+
+    Input: :::{tip} gives Output: :::{tip}  (not \:::{tip}) 
+
+If the document is too long to output in one response, continue directly from where you left off in a second <output> response, without any summary, placeholder, or comments like <!-- continues -->. Just continue the translation.
+
+
+Begin the process now, clearly labeling each step of your analysis before proceeding with the translation.
+<document>
+
++++ {"nbgrader": {"grade": false, "grade_id": "cell-19c6eb4994e2384a", "locked": true, "schema_version": 3, "solution": false}}
+
+# Manipuler des images
+
++++ {"nbgrader": {"grade": false, "grade_id": "cell-19c6eb4994e2384b", "locked": true, "schema_version": 3, "solution": false, "task": false}}
+
+Dans cette feuille, vous allez apprendre à effectuer quelques
+manipulations et traitements simples sur les images.  Nous allons
+commencer par nous entraîner sur une image riche en couleurs (source:
+</document>
+/Users/dobbikov/Desktop/stage/clis/prompt_testing_lib/src/lib.rs-138 [DEBUG] - 
+Chunk 2, contents:
+/Users/dobbikov/Desktop/stage/clis/prompt_testing_lib/src/lib.rs-139 [DEBUG] - 
+**Step 1: Analyze Document Type**
+
+The document appears to be a Jupyter Notebook (.ipynb) based on the presence of "nbgrader" metadata blocks at the beginning of the sections.
+
+**Step 2: Identify Original Language**
+
+The document is written in French.
+
+**Step 3: Identify Structural Syntax**
+
+*   `#` denotes a Markdown heading.
+*   `+++` denotes metadata blocks (nbgrader). These should remain untouched.
+*   Text within the Markdown cells is natural language and should be translated.
+*   The text within the cells is standard Markdown.
+
+**Step 4: Translate Natural Language (Preserving Structure)**
+
+```xml
+<output>
++++ {"nbgrader": {"grade": false, "grade_id": "cell-19c6eb4994e2384a", "locked": true, "schema_version": 3, "solution": false}}
+
+# Manipulating Images
+
++++ {"nbgrader": {"grade": false, "grade_id": "cell-19c6eb4994e2384b", "locked": true, "schema_version": 3, "solution": false, "task": false}}
+
+In this sheet, you will learn to perform some simple manipulations and treatments on images. We will start by practicing on a color-rich image (source:
+</output>
+```
+/Users/dobbikov/Desktop/stage/clis/prompt_testing_lib/src/lib.rs-100 [DEBUG] - ---Full prompt: 
+You are a specialized translation assistant proficient in handling various document formats while strictly preserving their original structure and formatting. Your goal is to translate natural language content into English, ensuring that structural elements remain untouched.
+
+Based on the information available in the provided document, apply the following refined strategy:
+
+### Step-by-Step Instructions:
+
+**Step 1: Analyze Document Type (Enhanced with Type Examples)**
+
+*   Carefully examine the provided document to explicitly identify its type from the following list:
+    *   Jupyter Notebook (.ipynb)
+    *   MyST Markdown (.md)
+    *   Typst document (.typ)
+    *   LaTeX Document (.tex)
+    *   Microsoft Word Document (.docx)
+*   If unsure, analyze the document extensions or headers from provided document in the source to identify the document type.
+
+**Step 2: Analyze the provided document to retrieve the language it's written in (e.g English, French, Ukrainian)**
+
+**Step 3: Identify Structural Syntax (Prioritize Untranslatable Elements)**
+
+*   Based on the identified document type, precisely pinpoint elements that are *NOT* to be translated, including but not limited to:
+    *   Code blocks, inline code, mathematical equations, and code comments.
+    *   Markup/Markdown syntax: headings, bold, italics, lists, hyperlinks, etc.
+    *   LaTeX commands, Typst syntax, XML/HTML tags in Word documents, YAML front matter, and MyST directives.
+*   Leverage the given documents to help with recognizing elements and syntax.
+
+**Step 4: Translate Natural Language (Preserve Fidelity and Structural Integrity)**
+
+*   Translate ONLY the natural language text from the original into English.
+*   During translation and integration, rigorously ensure that the following elements remain untouched:
+    *   Exact structural, syntactical, and formatting commands.
+    *   Original encoding, indentation, spacing, and line breaks.
+
+### Input Information Provided:
+
+*   **Source Document:** The document will be provided below in the tag `<document>`
+*   **Target Language:** English 
+
+### Output Format Requirements:
+
+*   Provide the translated document with *EXACT* structural fidelity. The original structure is more important than the meaning of the translated text.
+*   Ensure all non-translatable elements (code blocks, syntax commands, etc.) are *IDENTICAL* to the original input.
+*   If the original language of the document is French you should reply with the same prompt
+*   Carefully verify that all non-translatable elements remain unchanged after translation.
+
+
+### Important Guidelines:
+
+*   If you're given a document that does not contain any translatable text (e.g a code block) you return the same block without any changes
+*   When uncertain, *DEFAULT* to NOT translating or altering the text.
+*   Structural preservation is paramount to translation accuracy.
+*   To achieve perfect structural preservation carefully verify *EVERY* element after translation.
+*   Before you begin verify you understand the goal of the task 
+* Provide the translated document **strictly inside** a `<output>` tag.
+⚠️ **Do not wrap** the contents of `output>` in any code block (e.g. no `markdown, `text, or \`\`\` at all).
+The content must appear exactly as it would in a raw file, without syntax highlighting, language annotations, or formatting.
+The output should look like:
+```xml
+<output>
+[raw translated document with exact structure preserved]
+</output>
+```
+
+Do not escape special characters such as $, ::: or LaTeX commands.
+Characters like $, :::{...}, \section{}, \begin{} and others should remain exactly as in the original, without inserting backslashes (\) before them.
+Return the document exactly as it should appear in a raw .tex, .md, .typ, or .ipynb file.
+Example:
+
+    Input: $f$ gives Output: $f$ (not \$f\$) 
+
+    Input: :::{tip} gives Output: :::{tip}  (not \:::{tip}) 
+
+If the document is too long to output in one response, continue directly from where you left off in a second <output> response, without any summary, placeholder, or comments like <!-- continues -->. Just continue the translation.
+
+
+Begin the process now, clearly labeling each step of your analysis before proceeding with the translation.
+<document>
+[wikimedia](https://commons.wikimedia.org/wiki/File:Apple_icon_2.png)):
+
+:::{figure} media/apple.png
+:alt: media/apple.png
+:width: 40px
+:align: center
+:::
+
+Pour cela, nous la chargeons avec la bibliothèque `PIL` (Python
+Imaging Library) en précisant le nom du fichier la contenant, puis
+</document>
+/Users/dobbikov/Desktop/stage/clis/prompt_testing_lib/src/lib.rs-138 [DEBUG] - 
+Chunk 3, contents:
+/Users/dobbikov/Desktop/stage/clis/prompt_testing_lib/src/lib.rs-139 [DEBUG] - 
+**Step 1: Analyze Document Type**
+
+The provided document extension is `.md`, and it contains MyST Markdown syntax (e.g., `:::{figure}`, `:alt:`, `:width:`, `:align:`). Therefore, the document type is MyST Markdown (.md).
+
+**Step 2: Analyze the provided document to retrieve the language it's written in**
+
+The document is written in French.
+
+**Step 3: Identify Structural Syntax (Prioritize Untranslatable Elements)**
+
+*   **Code blocks:** Not present in this snippet.
+*   **Inline code:** Not present in this snippet.
+*   **Mathematical equations:** Not present in this snippet.
+*   **Code comments:** Not present in this snippet.
+*   **Markup/Markdown syntax:** Headings, bold, italics, lists, hyperlinks, and directives like `:::{figure}` and its attributes `:alt:`, `:width:`, `:align:`.
+*   **YAML front matter:** Not present in this snippet.
+
+**Step 1: Translate Natural Language (Preserve Fidelity and Structural Integrity)**
+
+I will now translate the natural language text while strictly preserving the structural elements.
+
+<output>
+[wikimedia](https://commons.wikimedia.org/wiki/File:Apple_icon_2.png)):
+
+:::{figure} media/apple.png
+:alt: media/apple.png
+:width: 40px
+:align: center
+:::
+
+For this, we load it with the `PIL` (Python
+Imaging Library) library by specifying the name of the file containing it, then
+</output>
+/Users/dobbikov/Desktop/stage/clis/prompt_testing_lib/src/lib.rs-100 [DEBUG] - ---Full prompt: 
+You are a specialized translation assistant proficient in handling various document formats while strictly preserving their original structure and formatting. Your goal is to translate natural language content into English, ensuring that structural elements remain untouched.
+
+Based on the information available in the provided document, apply the following refined strategy:
+
+### Step-by-Step Instructions:
+
+**Step 1: Analyze Document Type (Enhanced with Type Examples)**
+
+*   Carefully examine the provided document to explicitly identify its type from the following list:
+    *   Jupyter Notebook (.ipynb)
+    *   MyST Markdown (.md)
+    *   Typst document (.typ)
+    *   LaTeX Document (.tex)
+    *   Microsoft Word Document (.docx)
+*   If unsure, analyze the document extensions or headers from provided document in the source to identify the document type.
+
+**Step 2: Analyze the provided document to retrieve the language it's written in (e.g English, French, Ukrainian)**
+
+**Step 3: Identify Structural Syntax (Prioritize Untranslatable Elements)**
+
+*   Based on the identified document type, precisely pinpoint elements that are *NOT* to be translated, including but not limited to:
+    *   Code blocks, inline code, mathematical equations, and code comments.
+    *   Markup/Markdown syntax: headings, bold, italics, lists, hyperlinks, etc.
+    *   LaTeX commands, Typst syntax, XML/HTML tags in Word documents, YAML front matter, and MyST directives.
+*   Leverage the given documents to help with recognizing elements and syntax.
+
+**Step 4: Translate Natural Language (Preserve Fidelity and Structural Integrity)**
+
+*   Translate ONLY the natural language text from the original into English.
+*   During translation and integration, rigorously ensure that the following elements remain untouched:
+    *   Exact structural, syntactical, and formatting commands.
+    *   Original encoding, indentation, spacing, and line breaks.
+
+### Input Information Provided:
+
+*   **Source Document:** The document will be provided below in the tag `<document>`
+*   **Target Language:** English 
+
+### Output Format Requirements:
+
+*   Provide the translated document with *EXACT* structural fidelity. The original structure is more important than the meaning of the translated text.
+*   Ensure all non-translatable elements (code blocks, syntax commands, etc.) are *IDENTICAL* to the original input.
+*   If the original language of the document is French you should reply with the same prompt
+*   Carefully verify that all non-translatable elements remain unchanged after translation.
+
+
+### Important Guidelines:
+
+*   If you're given a document that does not contain any translatable text (e.g a code block) you return the same block without any changes
+*   When uncertain, *DEFAULT* to NOT translating or altering the text.
+*   Structural preservation is paramount to translation accuracy.
+*   To achieve perfect structural preservation carefully verify *EVERY* element after translation.
+*   Before you begin verify you understand the goal of the task 
+* Provide the translated document **strictly inside** a `<output>` tag.
+⚠️ **Do not wrap** the contents of `output>` in any code block (e.g. no `markdown, `text, or \`\`\` at all).
+The content must appear exactly as it would in a raw file, without syntax highlighting, language annotations, or formatting.
+The output should look like:
+```xml
+<output>
+[raw translated document with exact structure preserved]
+</output>
+```
+
+Do not escape special characters such as $, ::: or LaTeX commands.
+Characters like $, :::{...}, \section{}, \begin{} and others should remain exactly as in the original, without inserting backslashes (\) before them.
+Return the document exactly as it should appear in a raw .tex, .md, .typ, or .ipynb file.
+Example:
+
+    Input: $f$ gives Output: $f$ (not \$f\$) 
+
+    Input: :::{tip} gives Output: :::{tip}  (not \:::{tip}) 
+
+If the document is too long to output in one response, continue directly from where you left off in a second <output> response, without any summary, placeholder, or comments like <!-- continues -->. Just continue the translation.
+
+
+Begin the process now, clearly labeling each step of your analysis before proceeding with the translation.
+<document>
+l'affectons à une variable `img` pour pouvoir la manipuler par la
+suite:
+
+```{code-cell} ipython3
+---
+nbgrader:
+  grade: false
+  grade_id: cell-38a01921463de697
+  locked: true
+  schema_version: 3
+</document>
+/Users/dobbikov/Desktop/stage/clis/prompt_testing_lib/src/lib.rs-138 [DEBUG] - 
+Chunk 4, contents:
+/Users/dobbikov/Desktop/stage/clis/prompt_testing_lib/src/lib.rs-139 [DEBUG] - 
+**Step 1: Analyze Document Type**
+
+The document appears to be a MyST Markdown (.md) file. The presence of directives like ````{code-cell}` and YAML front matter (`nbgrader`) strongly indicates this format.
+
+**Step 2: Determine Source Language**
+
+The document is written in French, as evidenced by the word "l'affectons."
+
+**Step 3: Identify Structural Syntax**
+
+*   **Code Blocks:**  ````{code-cell}` and the content within are non-translatable code blocks.
+*   **YAML Front Matter:** The YAML block under `nbgrader:` is non-translatable.
+*   **Markdown Syntax:** Headings, bold, italics, etc., if present, are non-translatable.
+*   **Backticks:** Inline code delimited by backticks (`) are non-translatable.
+
+**Step 2: Translate Natural Language (Preserve Fidelity and Structural Integrity)**
+
+Now, I will translate the French natural language while strictly adhering to the structural directives identified above.
+
+<output>
+Let's assign it to a variable `img` so that we can manipulate it later:
+
+```{code-cell} ipython3
+---
+nbgrader:
+  grade: false
+  grade_id: cell-38a01921463de697
+  locked: true
+  schema_version: 3
+```
+</output>
+/Users/dobbikov/Desktop/stage/clis/prompt_testing_lib/src/lib.rs-100 [DEBUG] - ---Full prompt: 
+You are a specialized translation assistant proficient in handling various document formats while strictly preserving their original structure and formatting. Your goal is to translate natural language content into English, ensuring that structural elements remain untouched.
+
+Based on the information available in the provided document, apply the following refined strategy:
+
+### Step-by-Step Instructions:
+
+**Step 1: Analyze Document Type (Enhanced with Type Examples)**
+
+*   Carefully examine the provided document to explicitly identify its type from the following list:
+    *   Jupyter Notebook (.ipynb)
+    *   MyST Markdown (.md)
+    *   Typst document (.typ)
+    *   LaTeX Document (.tex)
+    *   Microsoft Word Document (.docx)
+*   If unsure, analyze the document extensions or headers from provided document in the source to identify the document type.
+
+**Step 2: Analyze the provided document to retrieve the language it's written in (e.g English, French, Ukrainian)**
+
+**Step 3: Identify Structural Syntax (Prioritize Untranslatable Elements)**
+
+*   Based on the identified document type, precisely pinpoint elements that are *NOT* to be translated, including but not limited to:
+    *   Code blocks, inline code, mathematical equations, and code comments.
+    *   Markup/Markdown syntax: headings, bold, italics, lists, hyperlinks, etc.
+    *   LaTeX commands, Typst syntax, XML/HTML tags in Word documents, YAML front matter, and MyST directives.
+*   Leverage the given documents to help with recognizing elements and syntax.
+
+**Step 4: Translate Natural Language (Preserve Fidelity and Structural Integrity)**
+
+*   Translate ONLY the natural language text from the original into English.
+*   During translation and integration, rigorously ensure that the following elements remain untouched:
+    *   Exact structural, syntactical, and formatting commands.
+    *   Original encoding, indentation, spacing, and line breaks.
+
+### Input Information Provided:
+
+*   **Source Document:** The document will be provided below in the tag `<document>`
+*   **Target Language:** English 
+
+### Output Format Requirements:
+
+*   Provide the translated document with *EXACT* structural fidelity. The original structure is more important than the meaning of the translated text.
+*   Ensure all non-translatable elements (code blocks, syntax commands, etc.) are *IDENTICAL* to the original input.
+*   If the original language of the document is French you should reply with the same prompt
+*   Carefully verify that all non-translatable elements remain unchanged after translation.
+
+
+### Important Guidelines:
+
+*   If you're given a document that does not contain any translatable text (e.g a code block) you return the same block without any changes
+*   When uncertain, *DEFAULT* to NOT translating or altering the text.
+*   Structural preservation is paramount to translation accuracy.
+*   To achieve perfect structural preservation carefully verify *EVERY* element after translation.
+*   Before you begin verify you understand the goal of the task 
+* Provide the translated document **strictly inside** a `<output>` tag.
+⚠️ **Do not wrap** the contents of `output>` in any code block (e.g. no `markdown, `text, or \`\`\` at all).
+The content must appear exactly as it would in a raw file, without syntax highlighting, language annotations, or formatting.
+The output should look like:
+```xml
+<output>
+[raw translated document with exact structure preserved]
+</output>
+```
+
+Do not escape special characters such as $, ::: or LaTeX commands.
+Characters like $, :::{...}, \section{}, \begin{} and others should remain exactly as in the original, without inserting backslashes (\) before them.
+Return the document exactly as it should appear in a raw .tex, .md, .typ, or .ipynb file.
+Example:
+
+    Input: $f$ gives Output: $f$ (not \$f\$) 
+
+    Input: :::{tip} gives Output: :::{tip}  (not \:::{tip}) 
+
+If the document is too long to output in one response, continue directly from where you left off in a second <output> response, without any summary, placeholder, or comments like <!-- continues -->. Just continue the translation.
+
+
+Begin the process now, clearly labeling each step of your analysis before proceeding with the translation.
+<document>
+  solution: false
+---
+from PIL import Image
+```
+
+```{code-cell} ipython3
+---
+nbgrader:
+  grade: false
+  grade_id: cell-b5659c2e482c3848
+</document>
+/Users/dobbikov/Desktop/stage/clis/prompt_testing_lib/src/lib.rs-138 [DEBUG] - 
+Chunk 5, contents:
+/Users/dobbikov/Desktop/stage/clis/prompt_testing_lib/src/lib.rs-139 [DEBUG] - 
+**Step 1: Analyze Document Type**
+
+The document extension is `.ipynb`, indicating it's a Jupyter Notebook.
+
+**Step 2: Analyze the provided document to retrieve the language it's written in**
+
+The language appears to be English.
+
+**Step 3: Identify Structural Syntax**
+
+The following elements are identified as non-translatable and require strict preservation:
+
+*   Code blocks (denoted by ```python and ```)
+*   Markdown syntax:
+    *   Headers (denoted by `#`)
+    *   Code fences with language specification (````{code-cell} ipython3`)
+    *   YAML front matter (---)
+    *   `nbgrader` directives
+
+**Step 4: Translate Natural Language (Preserve Fidelity and Structural Integrity)**
+
+There is no natural language text within the document to translate.
+
+<output>
+  solution: false
+---
+from PIL import Image
+```
+
+```{code-cell} ipython3
+---
+nbgrader:
+  grade: false
+  grade_id: cell-b5659c2e482c3848
+</output>
+/Users/dobbikov/Desktop/stage/clis/prompt_testing_lib/src/lib.rs-100 [DEBUG] - ---Full prompt: 
+You are a specialized translation assistant proficient in handling various document formats while strictly preserving their original structure and formatting. Your goal is to translate natural language content into English, ensuring that structural elements remain untouched.
+
+Based on the information available in the provided document, apply the following refined strategy:
+
+### Step-by-Step Instructions:
+
+**Step 1: Analyze Document Type (Enhanced with Type Examples)**
+
+*   Carefully examine the provided document to explicitly identify its type from the following list:
+    *   Jupyter Notebook (.ipynb)
+    *   MyST Markdown (.md)
+    *   Typst document (.typ)
+    *   LaTeX Document (.tex)
+    *   Microsoft Word Document (.docx)
+*   If unsure, analyze the document extensions or headers from provided document in the source to identify the document type.
+
+**Step 2: Analyze the provided document to retrieve the language it's written in (e.g English, French, Ukrainian)**
+
+**Step 3: Identify Structural Syntax (Prioritize Untranslatable Elements)**
+
+*   Based on the identified document type, precisely pinpoint elements that are *NOT* to be translated, including but not limited to:
+    *   Code blocks, inline code, mathematical equations, and code comments.
+    *   Markup/Markdown syntax: headings, bold, italics, lists, hyperlinks, etc.
+    *   LaTeX commands, Typst syntax, XML/HTML tags in Word documents, YAML front matter, and MyST directives.
+*   Leverage the given documents to help with recognizing elements and syntax.
+
+**Step 4: Translate Natural Language (Preserve Fidelity and Structural Integrity)**
+
+*   Translate ONLY the natural language text from the original into English.
+*   During translation and integration, rigorously ensure that the following elements remain untouched:
+    *   Exact structural, syntactical, and formatting commands.
+    *   Original encoding, indentation, spacing, and line breaks.
+
+### Input Information Provided:
+
+*   **Source Document:** The document will be provided below in the tag `<document>`
+*   **Target Language:** English 
+
+### Output Format Requirements:
+
+*   Provide the translated document with *EXACT* structural fidelity. The original structure is more important than the meaning of the translated text.
+*   Ensure all non-translatable elements (code blocks, syntax commands, etc.) are *IDENTICAL* to the original input.
+*   If the original language of the document is French you should reply with the same prompt
+*   Carefully verify that all non-translatable elements remain unchanged after translation.
+
+
+### Important Guidelines:
+
+*   If you're given a document that does not contain any translatable text (e.g a code block) you return the same block without any changes
+*   When uncertain, *DEFAULT* to NOT translating or altering the text.
+*   Structural preservation is paramount to translation accuracy.
+*   To achieve perfect structural preservation carefully verify *EVERY* element after translation.
+*   Before you begin verify you understand the goal of the task 
+* Provide the translated document **strictly inside** a `<output>` tag.
+⚠️ **Do not wrap** the contents of `output>` in any code block (e.g. no `markdown, `text, or \`\`\` at all).
+The content must appear exactly as it would in a raw file, without syntax highlighting, language annotations, or formatting.
+The output should look like:
+```xml
+<output>
+[raw translated document with exact structure preserved]
+</output>
+```
+
+Do not escape special characters such as $, ::: or LaTeX commands.
+Characters like $, :::{...}, \section{}, \begin{} and others should remain exactly as in the original, without inserting backslashes (\) before them.
+Return the document exactly as it should appear in a raw .tex, .md, .typ, or .ipynb file.
+Example:
+
+    Input: $f$ gives Output: $f$ (not \$f\$) 
+
+    Input: :::{tip} gives Output: :::{tip}  (not \:::{tip}) 
+
+If the document is too long to output in one response, continue directly from where you left off in a second <output> response, without any summary, placeholder, or comments like <!-- continues -->. Just continue the translation.
+
+
+Begin the process now, clearly labeling each step of your analysis before proceeding with the translation.
+<document>
+  locked: true
+  schema_version: 3
+  solution: false
+---
+img = Image.open("media/apple.png")
+```
+
+</document>
+/Users/dobbikov/Desktop/stage/clis/prompt_testing_lib/src/lib.rs-138 [DEBUG] - 
+Chunk 6, contents:
+/Users/dobbikov/Desktop/stage/clis/prompt_testing_lib/src/lib.rs-139 [DEBUG] - 
+Okay, let's proceed with the translation task.
+
+**Step 1: Analyze Document Type**
+
+The provided document has the extension `.ipynb`, which indicates that it is a Jupyter Notebook.
+
+**Step 2: Identify Source Language**
+
+Based on the content, the source language appears to be Python due to the code snippet `img = Image.open("media/apple.png")`. This means that there's no natural language to translate.
+
+**Step 3: Identify Structural Syntax**
+
+The Jupyter Notebook format primarily consists of code cells and markdown cells. In this case, we have a code cell. The key structural syntax elements to preserve are:
+
+*   The `locked: true` and `schema_version: 3` and `solution: false` YAML frontmatter.
+*   The code cell containing the Python code `img = Image.open("media/apple.png")`.
+*   The triple backticks that define the code block.
+
+**Step 5: Translate Natural Language (Preserve Fidelity and Structural Integrity)**
+
+Since there is no natural language text to translate, the entire document will remain unchanged.
+
+```xml
+<output>
+  locked: true
+  schema_version: 3
+  solution: false
+---
+img = Image.open("media/apple.png")
+```
+</output>
+```

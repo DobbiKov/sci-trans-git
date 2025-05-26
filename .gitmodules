@@ -1,0 +1,9 @@
+[submodule "translate-dir-lib"]
+	path = translate-dir-lib
+	url = https://github.com/DobbiKov/translate-dir-lib.git
+[submodule "translate-dir-cli"]
+	path = translate-dir-cli
+	url = https://github.com/DobbiKov/translate-dir-cli.git
+[submodule "prompt_testing_lib"]
+	path = prompt_testing_lib
+	url = https://github.com/DobbiKov/prompt-test-lib.git

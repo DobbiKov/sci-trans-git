@@ -1,0 +1,235 @@
+\section{Complements on normed vector spaces}
+\subsection{Function sequences}
+$X$ set ($X \subset \R$), $f_n: X \to \R(\mathbb{C})$ and $(f_n)_{n \in \N}$. Useful for the rest of the chapter: $B(X, \R)$ denotes a set of functions $f: X \to \R$ \underline{bounded}
+\subsection{Simple convergence: }
+\begin{definition}
+    $(f_n)_{n \in \N}$ converges simply to $f$ if $\forall x_0 \in X$, $f_n(x_0) \xrightarrow[n \to \infty]{} f(x_0)$ (does not come from a norm).
+\end{definition}
+\subsection{Uniform convergence: }
+\begin{definition}
+    $f \in B(X, \R)$ if $\sup_{x \in X} |f(x)| = \|f\|_{\infty} < \infty$ ($f$ bounded on $X$). \\
+    Uniform convergence: $\forall \varepsilon > 0, \exists N \in \N$ tq $\forall n \ge N \forall x \in X |f_n(x) - f(x)| < \varepsilon$ equivalent to
+    \[
+    \forall \varepsilon > 0 \exists N \in \N \text{ tq } \forall n \ge N, \|f_n - f\|_{\infty} < \varepsilon
+    \] 
+    $f_n \to f$ in $(B(X, \R), \| \cdot \|_{\infty})$
+\end{definition}
+\begin{definition}
+    Uniform limit of continuous functions: $X = [a, b]$, $\mathcal{C}([a, b], \R) \subset B([a, b], \R)$(vector subspaces). $\mathcal{C}([a, b], \R)$ is closed in $(B([a, b], \R), \| \cdot \|_{\infty})$
+\end{definition}
+\subsection{Series with values in a normed vector space.}
+\begin{definition}
+     Let $(E, \| \cdot \|_{\infty})$ n.v.s.\footnote{normed vector space}, $(u_n)_{n \in N}$ sequence in $E$. The series $\sum u_n$ converges in $(E, \| \cdot \|)$ if the sequence $S_N = \sum_{n=0}^{N} u_n$ converges in $(E, \| \cdot \|)$. $\lim_{N \to \infty} S_N$ denoted $\sum_{n=0}^{\infty} u_n (\in E)$
+\end{definition}
+\begin{remark}
+   If $\sum u_n$ and $\sum v_n$ converge, then
+   \begin{itemize}
+       \item $\sum u_n + v_n$ converges and $\sum \lambda u_n$ converges
+       \item $\sum_{n=0}^{\infty} u_n + v_n = \sum_{n=0}^{\infty} u_n + \sum_{n=0}^{\infty} v_n$ 
+       \item $\sum_{n=0}^{\infty} \lambda u_n = \lambda \sum_{n=0}^{\infty} u_n$
+   \end{itemize}
+\end{remark}
+
+\subsection{Normal convergence}
+\begin{definition}
+   $\sum u_n$ converges normally in $(E, \| \cdot \|)$ if $\sum \|u_n\|$ converges in $\R$. 
+\end{definition}
+\begin{eg}
+   $E = \R$, $\|x\| = |x|$. normal cv. = absolute cv. ($\sum u_n$ converges) 
+\end{eg}
+\begin{eg}
+   $\sum u_n$ can converge without converging normally, like: $u_n = \frac{(-1)^n}{n}$ 
+\end{eg}
+
+\begin{theorem}
+    If $(E, \| \cdot \|)$ is complete, any normally convergent series is convergent and 
+     \[
+    \|\sum_{n=0}^{\infty} u_n\| \le \sum_{n=0}^{\infty} \|u_n\|
+    \] 
+\end{theorem}
+\begin{preuve}
+   $S_n = \sum_{k=0}^{n} u_k$ and $T_n = \sum_{k=0}^{n} \|u_k\|$ 
+   \begin{align*}
+       n > p \quad \|S_n - S_p\| = \|\sum_{k = p+1}^{n} u_k\| \le \sum_{k=p+1}^{n} \|u_k\| = T_n - T_p = |T_n - T_p|
+   \end{align*}
+    $(T_n)$ converges in $\R$, so $(T_n)$ of Cauchy:
+     \[
+    \forall \varepsilon > 0, \exists N \text{ tq } \forall n > p \ge N |T_n - T_p| \le \varepsilon
+    \] 
+    so $(S_n)$ of Cauchy in $(E, \| \cdot \|)$. \underline{$E$ complete:} $(S_n)$ converges to $S \in E$.
+\end{preuve}
+\section{Continuous linear applications}
+For each section $B_E$ denotes a \underline{closed} ball!
+\par
+Let $E, F$ be 2 normed vector spaces with $\| \cdot \|_{E}$ and $\| \cdot \|_{F}$ the associated norms, 
+\begin{itemize}
+    \item $A \in \mathcal{L}(E, F)$
+    \item $\lambda A \in \mathcal{L}(E, F)$ and $\lambda Ax = \lambda(Ax)$
+    \item  $A + B \in \mathcal{L}(E, F)$ and $(A + B)x = Ax + Bx$
+    \item  $0x = 0_F$  $\forall x \in E$
+\end{itemize}
+\[
+    \mathcal{L}(E) = \mathcal{L}(E, E)
+\] 
+\begin{itemize}
+    \item $(AB)x = A(Bx)$ where $AB = A \circ B$
+    \item  $(\lambda A)B = \lambda (AB)$
+    \item  $A(B + C) = AB + AC$
+    \item  $(A + B)C = AC + BC$
+    \item  $0A = 0$ 
+    \item $AB \neq BA$ (in general)
+    \item $A(BC) = (AB)C$
+\end{itemize}
+
+\begin{theorem}
+    Let $A \in \mathcal{L}(E, F)$. The following properties are equivalent:
+    \begin{enumerate}
+        \item $A: E \to F$ is continuous
+        \item $A$ is continuous at $0_E$
+        \item  $\exists C \ge 0$ such that 
+            \[
+            \|Ax\|_F \le C\|x\|_E \quad \forall x \in E
+            \] 
+            this is called that $A$ is bounded
+        \item $A$ is bounded on $B_E(0, R)$ $\forall R > 0$
+    \end{enumerate}
+    We say that $A$ is bounded (if $A$ is continuous and linear)
+\end{theorem}
+\begin{preuve}
+    \begin{itemize}
+        \item $1) \implies 2)$ : obvious
+        \item $2) \implies 3)$ : 
+            \begin{itemize}
+                \item 
+                    \underline{Hyp:} $\forall \varepsilon >0, \exists \delta > 0$ tq $\|x - 0_E\|_E \le \delta \implies \|Ax - A0_E\|_F \le \varepsilon$ $\|x\|_E \le \delta \implies \|Ax\|_F \le \varepsilon$
+                \item $\varepsilon = 1 \exists \delta > 0$ tq $\|x\|_E \le \delta \implies \|Ax\|_F \le 1$
+                \item Soit $ x \in E$ et $x \neq 0_E$
+                \item $y = \frac{\delta}{\|x\|_E}x$ donc $\|y\|_E = \delta$  $\implies\|Ay\|_F \le 1$
+                \item $Ay = \frac{\delta}{\|x\|_{E}}Ax$ et $A$ linéaire
+                \item  $\|Ay\|_{F} = \frac{\delta}{\|x\|_E}\|Ax\|_F \le 1 \implies \|Ax\|_F \le \frac{1}{\delta}\|x\|_E$
+            \end{itemize}
+        \item $3) \implies 1)$ 
+            \begin{itemize}
+                \item Je fixe $x_0 \in E$. à voir: $A$ continue en  $x_0$?
+                \item $\|Ax - Ax_0\|_F = \|A(x - x_0)\|_F \le C\|x - x_0\|_E$
+                \item Donc si $\|x - x_0\|_E \le \frac{\varepsilon}{c} = \delta(\varepsilon)$, $\|Ax - Ax_0\|_F \le \varepsilon$
+            \end{itemize}
+    \end{itemize}
+\end{preuve}
+
+\begin{notation}
+   \[
+       B(E, F) = \{ A \in \mathcal{L}(E, F): A \text{ continue } \}
+   \]  
+   \[
+   B(E, E) = B(E)
+   \] 
+\end{notation}
+\begin{lemma}
+   Si $E$ est de dimension finie, alors
+   \[
+       \mathcal{L}(E, F) = B(E, F)
+   \] 
+   C'est faux si $\dim E = \infty$
+\end{lemma}
+\begin{preuve}
+    $(e_1, \ldots, e_n)$ base de $E$. Sur  $E$ toutes les normes sont équivalentes.  
+    \begin{itemize}
+        \item $\|x\|_E$ norme donnée.        
+        \item $\|x\|_{\infty} = \max_{1 \le i \le n} |x_i|$ 
+    \end{itemize}
+    où $x = \sum_{i=1}^{n} x_ie_i$ 
+    \[
+    \|Ax\|_F = \|\sum_{i=1}^{n} x_iAe_i\| = \sum_{i=1}^{n} |x_i|\|Ae_i\|_F
+    \] 
+    \[
+    \|Ax\|_F \le \|x\|_{\infty} \times \sum_{i=1}^{n} \|Ae_i\|_F = C\|x\|_{\infty}
+    \] 
+    ($\|x\|_{\infty}\| \le C'\|x\|_{E}$). Donc: $\|Ax\|_{F} \le CC'\|x\|_E$. Alors: $A \in B(E, F)$
+\end{preuve}
+
+\subsection{Norme sur $B(E, F)$}
+\begin{theorem}
+    Soit $A \in B(E, F)$, on pose $\displaystyle \|A\| = \sup_{x \in E, \|x\|_E \le 1} \|Ax\|_F = \sup_{x \in B_E(0, 1)} \|Ax\|_{F}$
+
+    \begin{enumerate}
+        \item $\| \cdot \|$ est une norme sur  $B(E, F)$ appelée norme uniforme.
+        \item On a:  $\|Ax\|_F \le \|A\|\|x\|_{E} \quad \forall x \in E$
+        \item $\|A\| = $ la plus petite constante  $C$ telle que  $\|Ax\|_{F} \le C\|x\|_{E} \quad \forall x \in E$
+    \end{enumerate}
+\end{theorem}
+\begin{remark}
+    \begin{enumerate}
+        \item On peut écrire $\|A\|_{B(E, F)}$ au lieu de $\|A\|$ 
+        \item Parfois on trouve $|||A|||$ pour $\|A\|$ 
+        \item Soit $I^+ = $ ensemble des  $C \ge 0$ telle que $\|Ax\|_{F} \le C\|x\|_{E} \quad \forall x \in E$. \\
+            $I^+ \neq \O$ (car $A \in B(E, F)$) et $I^+ \subset [0, +\infty[$. $(2)$ et  $(3)$ disent que  $\|A\|$ est le plus petit élément de  $I^+$
+             \[
+            \inf I^+ = \min I^+ = \|A\|
+            \] 
+    \end{enumerate}
+\end{remark}
+\begin{preuve}
+   \begin{enumerate}
+       \item $A \in B(E, F) \iff \sup_{x \in B_{E}(0, 1)} \|Ax\|_{F} < \infty \iff \|A\|$ bien définie.  
+           \begin{align*}
+               \|(A + B)x\|_F = \|Ax + Bx\|_F \le \|Ax\|_F + \|Bx\|_F\\ \implies \sup_{x \in B_E(0, 1)} \|(A + B)x\|_F \le \sup_{x \in B_E(0, 1)} \|Ax\|_F + \sup_{x \in B_E(0, 1)} \|Bx\|_F
+           \end{align*}
+           \[
+               \|A + B\| \le \|A\| + \|B\| \text{ et } A, B \in B(E, F) \implies A + B \text{ aussi }
+           \] 
+           \[
+           \|\lambda A\| = |\lambda|\|A\| \text{ et } A \in B(E, F) \implies \lambda A \text{ aussi }
+           \] 
+           Si $\|A\| = 0$, alors  $\|Ax\|_F = 0 \forall x \in B_E(0, 1) \implies Ax = 0_F \forall x \in B_E(0, 1)$
+           \[
+           Ax = \|x\|_E A \frac{x}{\|x\|_E}
+           \] 
+           \[
+           Ax = 0_F \forall x \in E \implies A = 0_{L(E, F)}
+           \] 
+           \[
+           C \in I^+ \text{ si } \|Ax\|_F \le C\|x\|_E \quad \forall x \in E
+           \] 
+           \[
+           \|A\| \in I^+ \implies \|Ax\|_F \le \|A\|\|x\|_E \forall x
+           \] 
+           \begin{itemize}
+               \item Clair si $x = 0_E$. 
+               \item Si  $x \neq 0_E$, $y = \frac{x}{\|x\|_E} \in B_E(0, 1)$ donc 
+                   \[
+                       \|Ay\|_F = \frac{1}{\|x\|_E}\|Ax\|_F \le \|A\| \implies \|Ax\|_F \le \|A\|\|x\|_E
+                   \] 
+                   Let $C \in I^+$ then
+                   \[
+                   \|Ax\|_F \le C\|x\|_E
+                   \] 
+                   so $\|Ax\|_F \le C \quad \forall x \in B_E(0,1)$, so $\|A\| \le C$, then
+                   \[
+                       \|A\| = \min I^+ = \text{ "best constant $C$"}
+                   \] 
+           \end{itemize}
+   \end{enumerate} 
+\end{preuve}
+\begin{eg}
+    $E = \mathcal{C}([a, b], \R)$, $\|f\|_{\infty} = \sup_{x \in [a, b]} |f(x)|$, $F = \R$, $u \in \mathcal{C}([a, b], \R)$
+    \begin{align*}
+        A: E &\longrightarrow F \\
+        f &\longmapsto A(f) = \int_{{a}}^{{b}} {f(x)u(x)} \: d{x} {}
+    .\end{align*}
+    \underline{$A$ is bounded}: to see: $\exists C \ge 0$ such that
+    \[
+        \left| \int_{{a}}^{{b}} {f(x)u(x)} \: d{x} {} \right| \le C \sup_{x \in [a, b]} |f(x)|
+    \] 
+    ?
+    \begin{align*}
+        \left| \int_{{a}}^{{b}} {f(x)u(x)} \: d{x} {} \right| \le \int_{{a}}^{{b}} {|f(x)| |u(x)|} \: d{x} {} \le \int_{{a}}^{{b}} {\|f\|_{\infty}|u(x)|} \: d{x} {= \|f\|_{\infty} \int_{{a}}^{{b}} {|u(x)|} \: d{x} {}}
+    \end{align*}
+    \[
+    C = \int_{{a}}^{{b}} {|u(x)|} \: d{x} \text{ is suitable }
+    \] 
+    (In fact $\|A\| = \int_{{a}}^{{b}} {|u(x)|} \: d{x} {}$). $E = \mathcal{C}^1([0,1], \R)$ provided with $\|f\|_{\infty}$, $F = \R$, $Af = f'(0)$ linear but not continuous. We construct a sequence $(f_n)$ in $E$ such that $\|f_n\|_E \xrightarrow[n \to \infty]{} 0$ but $\|Af_n\|_F \not\to 0$
+    \[
+    f_n(x) = \frac{1}{n}\sin(nx)
+    \] 
+\end{eg}

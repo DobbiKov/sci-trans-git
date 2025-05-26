@@ -1,0 +1,18 @@
+gemini-gpt-comparison:
+  type: Misc
+  title: Gemini 2.0 Flash vs o4-mini Can Google Do Better Than OpenAI?
+  url: https://www.analyticsvidhya.com/blog/2025/04/gemini-2-0-flash-vs-o4-mini/?utm_source=chatgpt.com
+  author: Riya Bansal
+  date: 2025-04-26
+
+gpt-consumption:
+  type: Misc
+  title: Power consumption of ChatGPT queries not as high as previously thought
+  url: https://www.linkedin.com/pulse/power-consumption-chatgpt-queries-high-previously-thought-julian-wong-ey28c
+  author: Julian Wong
+  date: 2025-02-13
+
+gemini-pricing:
+  type: Misc
+  title: Gemini Pricing
+  url: https://ai.google.dev/gemini-api/docs/pricing
