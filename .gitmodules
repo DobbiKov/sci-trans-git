@@ -1,3 +1,9 @@
 [submodule "prompt_testing_lib"]
 	path = prompt_testing_lib
 	url = https://github.com/DobbiKov/prompt-test-lib.git
+[submodule "prototype-translate-dir-lib"]
+	path = prototype-translate-dir-lib
+	url = https://github.com/DobbiKov/prototype-translate-dir-lib.git
+[submodule "prototype-translate-dir-cli"]
+	path = prototype-translate-dir-cli
+	url = https://github.com/DobbiKov/prototype-translate-dir-cli.git
