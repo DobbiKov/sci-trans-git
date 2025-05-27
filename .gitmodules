@@ -7,3 +7,6 @@
 [submodule "prototype-translate-dir-cli"]
 	path = prototype-translate-dir-cli
 	url = https://github.com/DobbiKov/prototype-translate-dir-cli.git
+[submodule "translate-dir-lib"]
+	path = translate-dir-lib
+	url = https://github.com/DobbiKov/translate-dir-lib.git
