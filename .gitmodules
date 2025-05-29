@@ -10,3 +10,6 @@
 [submodule "translate-dir-lib"]
 	path = translate-dir-lib
 	url = https://github.com/DobbiKov/translate-dir-lib.git
+[submodule "py-edu-fr"]
+	path = py-edu-fr
+	url = https://gitlab.dsi.universite-paris-saclay.fr/yehor.korotenko/py-edu-fr
