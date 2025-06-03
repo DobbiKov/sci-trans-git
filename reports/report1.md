@@ -77,15 +77,17 @@ For the prototype we chose **Gemini 2.0 Flash**:
 
 Gemini 2.0 Flash is a low-latency, energy-efficient model. A recent comparison is shown below:
 
-| Model name            | Energy per request |
-| --------------------- | ------------------ |
-| GPT-4o                | 0.30 Wh            |
-| **Gemini 2.0 Flash**  | **0.022 Wh**       |
-| Gemini 2.0 Flash-Lite | 0.016 Wh           |
-| Claude Haiku 3.5      | 0.22 Wh            |
-| Claude Opus 3         | 4.05 Wh            |
+| Model name                      | Energy per request |
+| --------------------------------| ------------------ |
+| GPT-4o                          | 0.30 Wh            |
+| **Gemini 2.0 Flash**            | **0.022 Wh**       |
+| Gemini 2.0 Flash-Lite           | 0.016 Wh           |
+| Claude Haiku 3.5                | 0.22 Wh            |
+| Claude Opus 3                   | 4.05 Wh            |
+| Ollama 3.3 70B                  | 10 Wh              |
+| Ollama 3.3 70B FP8 quantization | 0.033 Wh              |
 
-*Table 1 – Energy consumption of popular LLMs ([1], [2])*
+*Table 1 – Energy consumption of popular LLMs ([1], [2], [4])*
 
 From Table 1 we can see that **Gemini 2.0 Flash** delivers state-of-the-art results with the lowest energy footprint.
 
@@ -127,4 +129,4 @@ LLMs still struggle with syntax-aware translation, especially when context is mi
 - [1](https://www.analyticsvidhya.com/blog/2025/04/gemini-2-0-flash-vs-o4-mini/?utm_source=chatgpt.com)
 - [2](https://www.linkedin.com/pulse/power-consumption-chatgpt-queries-high-previously-thought-julian-wong-ey28c)
 - [3](https://ai.google.dev/gemini-api/docs/pricing)
-
+- [4](https://llm-tracker.info/_TOORG/Power-Usage-and-Energy-Efficiency?utm_source=chatgpt.com)
