@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Row Comparer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Array Row Comparer</h1>
+
+        <div class="input-area">
+            <label for="arrayInput">Paste your array of arrays here:</label>
+            <textarea id="arrayInput" rows="10" placeholder='[
+["Row1 Col1 with potentially very long text that needs more space to be visible and comparable.", "Row1 Col2", "Row1 Col3", "Row1 Col4"],
+["Row2 Col1", "Row2 Col2 with another long string that might wrap or need resizing.", "Row2 Col3", "Row2 Col4"],
+["", "Empty String", "Value", ""]
+]'></textarea>
+            <button id="processButton">Show Comparison Rows</button>
+            <p id="errorMessage" class="error-message"></p>
+        </div>
+
+        <div class="output-area">
+            <h2>Comparison Table</h2>
+            <table id="comparisonTable">
+                <thead>
+                    <tr>
+                        <th>Column 1</th>
+                        <th>Column 2</th>
+                        <th>Column 3</th>
+                        <th>Column 4</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Rows will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+            <p id="noDataMessage">No data loaded yet. Paste your array and click the button.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
