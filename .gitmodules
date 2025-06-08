@@ -13,3 +13,6 @@
 [submodule "py-edu-fr"]
 	path = py-edu-fr
 	url = https://gitlab.dsi.universite-paris-saclay.fr/yehor.korotenko/py-edu-fr
+[submodule "translation-evaluator"]
+	path = translation-evaluator
+	url = https://github.com/DobbiKov/translation-evaluator.git
