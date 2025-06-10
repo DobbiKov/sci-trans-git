@@ -79,17 +79,20 @@ Gemini 2.0 Flash is a low-latency, energy-efficient model. A recent comparison i
 
 | Model name                      | Energy per request |
 | --------------------------------| ------------------ |
-| GPT-4o                          | 0.30 Wh            |
-| **Gemini 2.0 Flash**            | **0.022 Wh**       |
-| Gemini 2.0 Flash-Lite           | 0.016 Wh           |
-| Claude Haiku 3.5                | 0.22 Wh            |
-| Claude Opus 3                   | 4.05 Wh            |
-| Ollama 3.3 70B                  | 10 Wh              |
-| Ollama 3.3 70B FP8 quantization | 0.033 Wh              |
+| GPT-4o                                | 0.30 Wh            |
+| **Gemini 2.0 Flash**                  | **0.022 Wh**       |
+| Gemini 2.0 Flash-Lite                 | 0.016 Wh           |
+| Claude Haiku 3.5                      | 0.22 Wh            |
+| Claude Opus 3                         | 4.05 Wh            |
+| Ollama 3.3 70B                        | 10 Wh              |
+| Ollama 3.3 70B FP8 quantization       | 0.033 Wh           |
+| Gemma 3 27B (Q4_K) (on Macbook Pro)   | 0.69 Wh            |
 
-*Table 1 – Energy consumption of popular LLMs ([1], [2], [4])*
+*Table 1 – Energy consumption of popular LLMs ([1], [2], [4], [5])*
 
 From Table 1 we can see that **Gemini 2.0 Flash** delivers state-of-the-art results with the lowest energy footprint.
+
+Important to note, that the there's no much information about the `Gemma 3 27B` energy consumption. 
 
 # Python course translation
 
@@ -130,3 +133,4 @@ LLMs still struggle with syntax-aware translation, especially when context is mi
 - [2](https://www.linkedin.com/pulse/power-consumption-chatgpt-queries-high-previously-thought-julian-wong-ey28c)
 - [3](https://ai.google.dev/gemini-api/docs/pricing)
 - [4](https://llm-tracker.info/_TOORG/Power-Usage-and-Energy-Efficiency?utm_source=chatgpt.com)
+- [5](https://www.reddit.com/r/LocalLLaMA/comments/1jc1nw1/actual_electricity_consumption_and_cost_to_run/?utm_source=chatgpt.com)
