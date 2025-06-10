@@ -10,6 +10,12 @@ The document to be translated will be wrapped inside a <document> tag, like this
 [original document content here]
 </document>
 
+Optionally, you may also receive a custom vocabulary dictionary wrapped in a <custom_vocabulary> tag. This dictionary contains specific terms and their preferred translations for the target domain, structured as `[SOURCE_TERM]=[TARGET_TERM]` pairs on separate lines. For terms that should not be translated, are listed as `[TERM]=[TERM]`.
+
+<custom_vocabulary>
+[CUSTOM_VOCABULARY]
+</custom_vocabulary>
+
 ---
 
 ### Step-by-Step Instructions (Internal Process)
