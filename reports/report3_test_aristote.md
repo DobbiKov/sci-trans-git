@@ -30,6 +30,8 @@ the results are presented:
 ## Tests
 The prompt that is given to the models before each request is given in the [prompt](#prompt) section
 
+Note: even though it is not related to the report, but the `gemma-3-27b` results are added as well.
+
 #### cell 1
 
 ```py
@@ -43,6 +45,7 @@ ouvre()
 
 Results:
 - aristote: translates all the function names: **incorrect**
+- gemma-3-27b: removes begin/end solution lines **incorrect**
 - gemini-2.0-flash: doesn't translate: **correct**
 - gemini-2.5-flash: doesn't translate: **correct**
 
@@ -55,6 +58,7 @@ animaux
 
 Results:
 - aristote: translates the variable `animaux`: **incorrect**
+- gemma-3-27b: doesn't translate: **correct**
 - gemini-2.0-flash: translates the variable `animaux`: **incorrect**
 - gemini-2.5-flash: doesn't translate: **correct**
 ---
@@ -76,6 +80,7 @@ somme_entiers_pairs(10)
 
 Results:
 - aristote: doesn't translate code, translates comments: **correct**
+- gemma-3-27b: doesn't translate code, translates comments: **correct**
 - gemini-2.0-flash: doesn't translate code, translates comments: **correct**
 - gemini-2.5-flash: doesn't translate code, translates comments: **correct**
 ---
@@ -87,6 +92,7 @@ assert est_gagnant()
 
 Results:
 - _aristote_: translates `est_gagnat` to `is_winner`: **incorrect**
+- _gemma-3-27b_: translates `est_gagnat` to `is_winner`: **incorrect**
 - _gemini-2.0-flash_: doesn't translate anything: **correct**
 - _gemini-2.5-flash_: doesn't translate anything: **correct**
 ---
@@ -120,6 +126,7 @@ ouvre()
 
 Results:
 - _aristote_: translates all the function names: **incorrect**
+- _gemma-3-27b_: doesn't translate anything: **correct**
 - _gemini-2.0-flash_: doesn't translate anything: **correct**
 - _gemini-2.5-flash_: doesn't translate anything: **correct**
 
