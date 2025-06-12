@@ -44,14 +44,22 @@ In parallel, we develop a prototype library to simplify the _project_
 translation (such as `LaTeX` document splited into multiple files, or `myst`
 project). 
 
-For now, the library translates only jupyter notebooks by using `jupytext`
+#### Library
+For now, the library translates jupyter notebooks by using `jupytext`
 module to extract contents of cells, pass it to the models and extract
-translation. The translation is stored in the translation database, in order to
+translation and `LaTeX` documents by using `pylatexenc` to construct an `AST` and
+divide the document into chunks and then translate those chunks.
+The translation is stored in the translation database, in order to
 not retranslate the translated chunks and just retrieve them.
 
 The library also provides a possibility to correct translation (i.e rewrite or
 fix the translated file by the model and save the translation in the database
 so it is not overwritten in the future).
+
+In order to improve translation quality and avoid ambiguity the vocabulary feature 
+is provided in the library. For the translation command, there's an optional 
+parameter that is a vocabulary (translation pairs) that would help the model 
+to use the appropriate words and phrases that are presented in the vocabulary.
 
 ### Reports
 1. [First report](./reports/report1.md) = the report presents the first
@@ -64,8 +72,35 @@ so it is not overwritten in the future).
 3. [Aristote evaluation report](./reports/report3_test_aristote.md) = the
    report provides the comparison of the translations of the `gemini` and
    `llama-3.3` models.
+4. [Translation evaluation report](./reports/report4_translation_evaluation.md) = 
+the report that evaluates the quality of translation of different models
+such as: `gemini`, `llama` and `gemma` from and to languages such as:
+- English
+- French
+- German
+- Ukrainian
+5. [Translation evaluation tool report](./reports/report5_evaluation_tool.md) = the 
+report presents the new tool for automatic translation evaluation using popular
+metrics.
+6. [Latex chunking report](./reports/report6_latex_chunking.md) = the report
+presents the results of the work on developing the feature of dividing `LaTeX`
+documents into chunks in order to simplify translation.
 
 ## Resources presented in the repository
 - The `prompt` directory contains files that store prompts that are currently
   used in the library to translate documents.
 - [library itself](https://github.com/DobbiKov/translate-dir-lib/)
+- [translation evaluation tool](https://github.com/DobbiKov/translation-evaluator/) 
+    for automatic translation evaluation using reference translations.
+
+## Current development direction
+### High priority direction
+1. High priority direction is to explore and implement an "*RAG*" for the
+   vocabulary, that is to say extract only essential translation pairs from the
+   vocabulary and pass them to the prompt in order to reduce the number of
+   tokens.
+2. Explore the ways to use the translation database and to provide the model
+   the way and the style it should write the translation in.
+
+### Low priority direction
+Add the chunking support for `markdown` and the general text files.
