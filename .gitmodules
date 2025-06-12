@@ -16,3 +16,6 @@
 [submodule "translation-evaluator"]
 	path = translation-evaluator
 	url = https://github.com/DobbiKov/translation-evaluator.git
+[submodule "translate-dir-cli"]
+	path = translate-dir-cli
+	url = https://github.com/DobbiKov/translate-dir-cli.git
