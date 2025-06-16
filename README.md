@@ -61,6 +61,10 @@ is provided in the library. For the translation command, there's an optional
 parameter that is a vocabulary (translation pairs) that would help the model 
 to use the appropriate words and phrases that are presented in the vocabulary.
 
+#### CLI
+In order to simplify the library testing and presentation, a CLI application
+that implements library functionality has been developed.
+
 ### Reports
 1. [First report](./reports/report1.md) = the report presents the first
    prototype written in _rust_ programming language presenting the idea of the
@@ -90,6 +94,7 @@ documents into chunks in order to simplify translation.
 - The `prompt` directory contains files that store prompts that are currently
   used in the library to translate documents.
 - [library itself](https://github.com/DobbiKov/translate-dir-lib/)
+- [CLI implementing library](https://github.com/DobbiKov/translate-dir-cli/)
 - [translation evaluation tool](https://github.com/DobbiKov/translation-evaluator/) 
     for automatic translation evaluation using reference translations.
 
