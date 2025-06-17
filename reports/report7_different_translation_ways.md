@@ -26,3 +26,12 @@ models tend to be overwhelmed due to the real size of the context windows.
 
 ## More important notes
 Gemma is unusable, especially in the second case but understands better how to write in Ukrainian language.
+
+## Ideas to explore
+
+Extract text only without tags, ask firstly llm to translate.
+
+Then provide original xml tagged version and translated text without tags and
+ask an LLM to construct the xml tagged version out of the translated untagged
+text using the source tagged version. 
+Cons: very unreliable
