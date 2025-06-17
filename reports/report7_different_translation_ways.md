@@ -17,7 +17,7 @@ Cons: LLM doesn't change the order of words if it is needed, especially if one w
 ```
 
 Advantages: LLM has more possibilities to alter the text
-Cons: smaller models can put more text that has been outside of math environment inside of it
+Cons: smaller models can put more text that has been outside of math environment inside of it (for less popular languages)
 
 ---
 There were also idea to provide firstly the source untagged code for the LLM so
