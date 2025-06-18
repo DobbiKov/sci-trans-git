@@ -2,3 +2,4 @@ comparing_results/
 papers/
 .DS_Store
 translation_testing/
+uv.lock
