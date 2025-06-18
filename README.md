@@ -100,12 +100,13 @@ documents into chunks in order to simplify translation.
 
 ## Current development direction
 ### High priority direction
-1. High priority direction is to explore and implement an "*RAG*" for the
+1. Explore the ways to use the translation database and to provide the model
+   the way and the style it should write the translation in.
+2. Explore and implement an "*RAG*" for the
    vocabulary, that is to say extract only essential translation pairs from the
    vocabulary and pass them to the prompt in order to reduce the number of
    tokens.
-2. Explore the ways to use the translation database and to provide the model
-   the way and the style it should write the translation in.
 
 ### Low priority direction
-Add the chunking support for `markdown` and the general text files.
+Add the chunking support for `markdown`, `myst` and the general text files.
+Implement `xml` tagged conversion and translation for `LaTeX` and `jupyter notebook`
