@@ -5,7 +5,9 @@ It is currently a draft.
 There are several ideas of how to pass data to LLM:
 1. <TEXT> tag for each text part and <PH> for untranslatable parts, example:
 ```xml
-<TEXT id="2">Soit </TEXT><PH id="3" original="$A \subset E$"/><TEXT id="4"> borné si </TEXT><PH id="5" original="$\exists R > 0$"/><TEXT id="6"> tel que </TEXT><PH id="7" original="$A \subset B(x, R)$"/><TEXT id="8">.</TEXT>
+<TEXT id="2">Soit </TEXT><PH id="3" original="$A \subset E$"/><TEXT id="4">
+borné si </TEXT><PH id="5" original="$\exists R > 0$"/><TEXT id="6"> tel que
+</TEXT><PH id="7" original="$A \subset B(x, R)$"/><TEXT id="8">.</TEXT>
 ```
 
 Advantages: math and text never alter, we keep the structure and syntax
