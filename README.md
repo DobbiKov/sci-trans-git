@@ -89,12 +89,16 @@ metrics.
 6. [Latex chunking report](./reports/report6_latex_chunking.md) = the report
 presents the results of the work on developing the feature of dividing `LaTeX`
 documents into chunks in order to simplify translation.
+7. [New ways of passing text to LLMs report](./reports/report7_different_translation_ways.md) 
+= the report presents the results of the work on exploring the new way of passing text
+into LLMs in order to improve the reliability of structure preserving and reduce number of tasks
+that the models must handle simultaneously.
 
 ## Resources presented in the repository
 - The `prompt` directory contains files that store prompts that are currently
   used in the library to translate documents.
 - [library itself](https://github.com/DobbiKov/translate-dir-lib/)
-- [CLI implementing library](https://github.com/DobbiKov/translate-dir-cli/)
+- [CLI library implemetation](https://github.com/DobbiKov/translate-dir-cli/)
 - [translation evaluation tool](https://github.com/DobbiKov/translation-evaluator/) 
     for automatic translation evaluation using reference translations.
 
