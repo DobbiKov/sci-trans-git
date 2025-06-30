@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/990720286.svg)](https://doi.org/10.5281/zenodo.15775111)
 # Document translation tool
 We explore the specific challenges of authoring and maintaining multilingual
 computational scientific narratives, like course notes, textbooks, or reference
