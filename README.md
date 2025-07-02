@@ -1,5 +1,8 @@
 [![DOI](https://zenodo.org/badge/990720286.svg)](https://doi.org/10.5281/zenodo.15775111)
 # Document translation tool
+This is a main repository of the translation tool. You should visit [CLI repo](https://github.com/DobbiKov/translate-dir-cli) if you want to translate your document using the CLI and [LIB repo](https://github.com/DobbiKov/translate-dir-lib) if you are interseted in using the translation library.
+
+## TL;DR
 We explore the specific challenges of authoring and maintaining multilingual
 computational scientific narratives, like course notes, textbooks, or reference
 manuals, and the design space for leveraging adaptive machine translation to
