@@ -97,6 +97,7 @@ documents into chunks in order to simplify translation.
 = the report presents the results of the work on exploring the new way of passing text
 into LLMs in order to improve the reliability of structure preserving and reduce number of tasks
 that the models must handle simultaneously.
+8. [One shot translation to preserve writing style report](./reports/report8_retranslation_with_few_changes.md) = the report presents the explorations and the results about preserving the style using one-shot prompting technique.
 
 ## Resources presented in the repository
 - The `prompt` directory contains files that store prompts that are currently
