@@ -37,6 +37,23 @@ course notes written in some markup language like MyST/Markdown/Jupyter or
 LaTeX, collaboratively authored using a software forge. Either by adopting and
 deploying existing systems, or building a lightweight one from existing bricks.
 
+
+
+## 📚 Citation
+
+If you use this software in your research, please cite it as follows:
+```bib
+@software{korotenko-sci-trans-git,
+    author = {Yehor Korotenko},
+    title = {sci-trans-git},
+    year = {2025},
+    publisher = {GitHub},
+    version = {0.2.0-alpha},
+    url = {https://github.com/DobbiKov/sci-trans-git},
+    doi = {10.5281/zenodo.15775111}
+}
+```
+
 ## The state of the project
 In this section the state of the project is described as well as the reports that are done by the moment of the README edit.
 
