@@ -19,3 +19,6 @@
 [submodule "translate-dir-cli"]
 	path = translate-dir-cli
 	url = https://github.com/DobbiKov/translate-dir-cli.git
+[submodule "unified_model_caller"]
+	path = unified_model_caller
+	url = https://github.com/DobbiKov/unified-model-caller.git
