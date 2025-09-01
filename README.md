@@ -2,6 +2,8 @@
 # Document translation tool
 This is a main repository of the translation tool. You should visit [CLI repo](https://github.com/DobbiKov/translate-dir-cli) if you want to translate your document using the CLI and [LIB repo](https://github.com/DobbiKov/translate-dir-lib) if you are interseted in using the translation library.
 
+Paper about the project: [link](https://dobbikov.github.io/sci-trans-git/jdse-paper.pdf)
+
 ## TL;DR
 We explore the specific challenges of authoring and maintaining multilingual
 computational scientific narratives, like course notes, textbooks, or reference
@@ -125,15 +127,6 @@ that the models must handle simultaneously.
     for automatic translation evaluation using reference translations.
 
 ## Current development direction
-### High priority direction
-1. When an untranslated chunk encountered it is possible that this chunk has been translated except one/two words has been changed/added/removed. Thus, it would     be preferable to get as close result as it was except with taking changes into account. Thus, the ways to extract old chunk, it's translation and use them to     get the new translation as close to the previous one as possible.
-2. Explore the ways to use the translation database and to provide the model
-   the way and the style it should write the translation in.
-3. Explore and implement an "*RAG*" for the
-   vocabulary, that is to say extract only essential translation pairs from the
-   vocabulary and pass them to the prompt in order to reduce the number of
-   tokens.
-
-### Low priority direction
-Add the chunking support for `markdown`, `myst` and the general text files.
-Implement `xml` tagged conversion and translation for `LaTeX` and `jupyter notebook`
+- Add the chunking support for `myst` and the general text files.
+- Explore the ways to use the translation database and to provide the model
+the way and the style it should write the translation in.

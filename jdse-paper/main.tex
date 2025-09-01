@@ -1,0 +1,230 @@
+% This is samplepaper.tex, a sample chapter demonstrating the
+% LLNCS macro package for Springer Computer Science proceedings;
+% Version 2.21 of 2022/01/12
+%
+\documentclass[runningheads]{llncs}
+%
+\usepackage[T1]{fontenc}
+
+\usepackage{geometry}
+\geometry{margin=1.4in}
+% T1 fonts will be used to generate the final print and online PDFs,
+% so please use T1 fonts in your manuscript whenever possible.
+% Other font encondings may result in incorrect characters.
+%
+\usepackage{graphicx}
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following two lines
+% to display URLs in blue roman font according to Springer's eBook style:
+\usepackage{hyperref}
+\usepackage{color}
+\renewcommand\UrlFont{\color{blue}\rmfamily}
+\urlstyle{rm}
+%
+\begin{document}
+%
+\title{Leveraging Large Language Models for maintaining scientific multilingual documents}
+%
+%\titlerunning{Abbreviated paper title}
+% If the paper title is too long for the running head, you can set
+% an abbreviated paper title here
+%
+\author{Yehor Korotenko\inst{1}\orcidID{0009-0002-4570-2391}}
+%
+\authorrunning{Yehor Korotenko}
+% First names are abbreviated in the running head.
+% If there are more than two authors, 'et al.' is used.
+%
+\institute{Laboratoire Interdisciplinaire des Sciences du Numérique, Gif-sur-Yvette, France 
+\email{yehor.korotenko@universite-paris-saclay.fr}}
+%
+\maketitle              % typeset the header of the contribution
+%
+\begin{abstract}
+We explore the specific challenges of authoring and maintaining multilingual
+computational scientific narratives, like course notes, textbooks, or reference
+manuals, and the design space for leveraging adaptive machine translation to
+assist authors.
+\keywords{Machine Translation \and Large Language Models \and Markup Languages
+\and NLP }
+\end{abstract}
+%
+%
+%
+\section{Introduction}
+Over the years, machine translation has remained a prominent area of research
+in computer science, continually benefiting from advancements in neural network
+architectures. 
+
+Although current machine translation systems achieve
+high-quality results for individual text translations and numerous tools exist
+to support the translation process, they remain inadequate for the continuous
+maintenance of evolving multilingual projects. In particular, these tools face
+significant challenges when handling documents written in \textit{markup} languages such
+as \textit{Markdown}, \textit{LaTeX}, or \textit{MyST}.
+
+Moreover, existing tools typically do not retain the author’s stylistic
+intent—a factor that plays a critical role in the clarity, tone, and
+pedagogical effectiveness of written materials.
+
+\paragraph{We introduce} a methodical framework and supporting toolchain that
+facilitates the sustainable translation of evolving scientific documents, with
+explicit preservation of \textit{structural layout}, \textit{stylistic
+consistency}, and \textit{domain-specific syntax}. We design a markup-aware
+pipeline that parses, tokenizes, and synchronizes document segments using
+placeholder-preserving translation logic and author-style adaptation
+heuristics using the context of the document.
+
+\section{Approach}\label{sec:approach}
+We divide the translation challenge into two complementary aspects:
+\begin{itemize}
+    \item \textbf{Syntax preservation}: protecting non-linguistic elements such
+        as LaTeX macros, code, and references. 
+    \item \textbf{Style preservation and long-term maintainability}: ensuring
+        consistent terminology and authorial style across document revisions.
+\end{itemize}
+
+\subsection{Baseline Translation with Syntax Preservation}
+A key difficulty in translating scientific documents is preserving markup
+syntax, which standard MT systems often corrupt. Our approach is to analyze the
+document beforehand, split it into context-aware chunks, and represent each
+chunk as a single \texttt{<TEXT>} element containing natural language, with
+inline placeholders \texttt{<PH original="..."/>} for non-linguistic spans
+(e.g., LaTeX math, commands, or code).
+
+This design has two advantages. First, it enables correct word reordering
+between languages (e.g., adjective–noun inversion in French~$\rightarrow$~English)
+without breaking the surrounding markup. Second, the \texttt{original}
+attribute of each \texttt{<PH>} tag provides the model with contextual
+information. For example:
+
+\begin{quote}
+\texttt{Let <PH original="\$f\$"/> be an endomorphism.}
+\end{quote}
+
+produces more accurate results than the contextless:
+\begin{quote}
+\texttt{Let <PH/> be an endomorphism.}
+\end{quote}
+
+Among the tested strategies, this method was most effective: it minimizes
+ambiguity by explicitly labeling translatable versus non-translatable spans,
+reducing the number of sub-tasks the model must implicitly solve.
+
+\subsection{Style Preservation and Long-Term Maintenance}
+As documents grow in size and evolve over time, maintaining translation quality
+and consistency becomes increasingly challenging. Retranslating unchanged text
+is both wasteful and undesirable, as it discards valuable human post-edits and
+terminology choices.
+
+To address this, our system introduces a \textit{translation memory and
+correspondence database}. Each chunk of source or translated text is stored in
+a language-specific directory, where the file name is the checksum of the
+chunk. A correspondence table links checksums across languages. This design
+allows the system to:
+\begin{itemize}
+    \item detect and reuse unchanged chunks without invoking a model,
+    \item identify slightly modified chunks (e.g., one sentence added, or a few
+    words reordered),
+    \item provide the model with the previous source--translation pair as
+    contextual guidance.
+\end{itemize}
+
+This mechanism not only reduces cost and energy consumption by avoiding
+redundant translation, but also preserves the author’s style and terminology
+over multiple revision cycles. When small edits occur, the system encourages
+minimal updates to existing translations rather than full re-generation,
+helping ensure stylistic continuity across languages and versions.
+
+\subsection{Domain Vocabulary Support}
+Many translation projects involve domain-specific terminology whose meaning
+differs from everyday language, leading to frequent ambiguities. For example,
+the English word \textit{thread} may translate into French as
+\textit{fil} in a textile context, but as \textit{thread d’exécution} in a
+computing context. Similar issues arise with terms such as
+\textit{ring} (mathematics vs. jewelry) or \textit{cell} (biology vs. prisons).
+
+To mitigate this, our system allows users to provide a custom
+\textit{vocabulary dictionary} of source--target pairs
+(\texttt{original}~$\rightarrow$~\texttt{translation}). During translation,
+these entries act as high-priority overrides: they are applied only to
+natural-language segments and never to code or markup placeholders. 
+
+This feature ensures terminological consistency across large projects, reduces
+post-editing effort, and gives authors control over critical word choices in
+specialized domains.
+
+\section{Evaluations and Preliminary Results}
+State-of-the-art large language models (LLMs) achieve excellent performance in
+plain-text translation, but their ability to handle scientific documents with
+mixed natural language and markup remains less clear. To assess this, we
+conducted preliminary evaluations of different model families, focusing on
+their trade-offs in translation quality, structural fidelity, and resource
+requirements.
+
+We considered three representative models:
+\begin{itemize}
+    \item \texttt{Gemini-2.0-flash}: proprietary, highly energy-efficient,
+    offering the strongest overall quality;
+    \item \texttt{Llama-3.3-70B}: a medium-size open-weight model hosted at
+    Université Paris-Saclay;
+    \item \texttt{Gemma3-27B}: a smaller open-weight model that can run locally
+    on personal hardware.
+\end{itemize}
+
+Since \texttt{Gemini-2.0-flash} consistently produced the best results, our
+comparisons emphasize the two open-weight models, which are more attractive for
+privacy-preserving and institutionally hosted workflows. Tests were divided
+into two categories: (i) natural language translation without markup syntax,
+and (ii) translation of syntax-heavy documents (LaTeX, Markdown, Jupyter).
+
+\paragraph{Plain text.}
+In the absence of markup, \textit{Gemma3-27B} often outperformed
+\textit{Llama-3.3-70B} in lexical choice and fluency, especially in
+less-resourced languages such as Ukrainian. However, its smaller capacity
+sometimes led to grammatical inconsistencies, where LLaMA’s larger context
+window provided more stable results.
+
+\paragraph{Syntax-preserving translation.}
+When markup elements were present, the trend reversed: \textit{LLaMA-3.3-70B}
+was markedly more robust, while \textit{Gemma3-27B} frequently omitted or
+altered placeholders, left elements untranslated, or dropped content entirely.
+This suggests that Gemma’s smaller effective context window and parameter count
+limit its reliability for structure-aware translation tasks.
+
+Overall, while \textit{Gemma3-27B} is attractive for its ability to run locally
+and low resource usage, its reliability in syntax-heavy translation is limited.
+\textit{LLaMA-3.3-70B} is more robust but requires institutional infrastructure
+and is less reliable then \textit{Gemini-2.0-flash} that remains the strongest
+overall, but its proprietary nature limits its integration in privacy-sensitive
+workflows.
+
+\section{Conclusion}
+We presented a framework for adaptive translation of scientific documents that
+combines XML-based syntax preservation, translation memory for long-term style
+continuity, and domain vocabulary support. Preliminary evaluations across
+different model families confirm that while open-weight models can achieve
+competitive results on plain text, they struggle with syntax-heavy documents,
+underscoring the need for our model-agnostic strategies. Our open-source
+toolchain\footnote{\url{https://github.com/DobbiKov/sci-trans-git}, DOI:
+\href{https://doi.org/10.5281/zenodo.16983036}{10.5281/zenodo.16983036}} offers
+a practical basis for privacy-preserving, reproducible multilingual authoring
+workflows. Future work will extend chunking to additional markup formats and
+integrate tighter human-in-the-loop feedback for style guidance.
+
+
+% ---- Bibliography ----
+%
+% BibTeX users should specify bibliography style 'splncs04'.
+% References will then be sorted and formatted in the correct style.
+%
+\bibliographystyle{splncs04}
+\bibliography{mybibliography}
+
+\begin{thebibliography}{8}
+\bibitem{moslem2023adaptive}
+Moslem, Yasmin and Haque, Rejwanul and Kelleher, John D and Way, Andy.: Adaptive machine translation with large language models. In: arXiv preprint arXiv:2301.13294. \url{https://arxiv.org/abs/2301.13294}
+\end{thebibliography}
+\end{document}
