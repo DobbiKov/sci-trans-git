@@ -61,18 +61,26 @@ If you use this software in your research, please cite it as follows:
 In this section the state of the project is described as well as the reports that are done by the moment of the README edit.
 
 ### State of the project
-Currently, we still explore different models as well as their capabilities in
-translation and syntax, layout and structure preserving.
+Currently, the main goal is to improve the `myst` two-way parsing in order to
+be able to parse it into `XML` tags and reconstruct it back.
 
-In parallel, we develop a prototype library to simplify the _project_
-translation (such as `LaTeX` document splited into multiple files, or `myst`
-project). 
+In parallel, we explore possibilities to provide to the model the context of a
+document.
 
 #### Library
 For now, the library translates jupyter notebooks by using `jupytext`
 module to extract contents of cells, pass it to the models and extract
 translation and `LaTeX` documents by using `pylatexenc` to construct an `AST` and
 divide the document into chunks and then translate those chunks.
+
+Also the library provides a functionality to translate `myst` and `LaTeX` files
+as well following the same approach:
+1. Parse the code
+2. Identify and differentiate `syntax` part from `human-text` parts.
+3. Construct `XML` code
+4. Translate via LLM
+5. Reconstruct the document back.
+
 The translation is stored in the translation database, in order to
 not retranslate the translated chunks and just retrieve them.
 
@@ -84,6 +92,10 @@ In order to improve translation quality and avoid ambiguity the vocabulary featu
 is provided in the library. For the translation command, there's an optional 
 parameter that is a vocabulary (translation pairs) that would help the model 
 to use the appropriate words and phrases that are presented in the vocabulary.
+
+Slightly changed chunks that are stored in the database are provided to the LLM
+as an example in order to take the post-edits into account and follow the
+author's style of writing.
 
 #### CLI
 In order to simplify the library testing and presentation, a CLI application
@@ -120,14 +132,12 @@ that the models must handle simultaneously.
 8. [One shot translation to preserve writing style report](./reports/report8_retranslation_with_few_changes.md) = the report presents the explorations and the results about preserving the style using one-shot prompting technique.
 
 ## Resources presented in the repository
-- The `prompt` directory contains files that store prompts that are currently
-  used in the library to translate documents.
 - [library itself](https://github.com/DobbiKov/translate-dir-lib/)
 - [CLI library implemetation](https://github.com/DobbiKov/translate-dir-cli/)
 - [translation evaluation tool](https://github.com/DobbiKov/translation-evaluator/) 
     for automatic translation evaluation using reference translations.
 
 ## Current development direction
-- Add the chunking support for `myst` and the general text files.
+- Improve `myst` parsing.
 - Explore the ways to use the translation database and to provide the model
 the way and the style it should write the translation in.
