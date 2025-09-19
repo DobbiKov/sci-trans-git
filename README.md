@@ -2,7 +2,8 @@
 # Document translation tool
 This is a main repository of the translation tool. You should visit [CLI repo](https://github.com/DobbiKov/translate-dir-cli) if you want to translate your document using the CLI and [LIB repo](https://github.com/DobbiKov/translate-dir-lib) if you are interseted in using the translation library.
 
-Paper about the project: [link](https://dobbikov.github.io/sci-trans-git/jdse-paper.pdf)
+- Paper about the project: [link](https://dobbikov.github.io/sci-trans-git/jdse-paper.pdf)
+- Poster about the project: [link](https://dobbikov.github.io/sci-trans-git/jdse-poster-yehor-korotenko.pdf)
 
 ## TL;DR
 We explore the specific challenges of authoring and maintaining multilingual
